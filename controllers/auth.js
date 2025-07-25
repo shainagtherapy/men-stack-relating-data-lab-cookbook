@@ -44,8 +44,8 @@ router.post("/sign-in", async (req, res) => {
         username: userInDatabase.username,
         _id: userInDatabase._id,
     }
-
-    //res.send("Request to sign in received!")
+    // console.log(userInDatabase)
+    // res.send("Request to sign in received!")
     res.redirect("/");
 })
 

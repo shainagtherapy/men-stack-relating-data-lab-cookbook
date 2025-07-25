@@ -3,13 +3,22 @@ const router = express.Router();
 const User = require('../models/user.js');
 
 // GET / for login index
-router.get('/', (req, res) => {
-    res.render('foods/index.ejs');
+router.get('/', async (req, res) => {
+    try {
+        const currentUser = await User.findById(req.session.user._id);
+
+        res.render('foods/index.ejs', {
+        applications: currentUser.applications,
+        });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
 })
 
 // NEW
 router.get('/new', (req, res) => {
-    res.render('foods/new.ejs')
+    res.send('foods/new.ejs')
 });
 
 // POST / create (submit new item)
@@ -27,9 +36,9 @@ router.post('/', async (req, res) => {
 router.get('/:foodId', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id);
-        const food = currentUser.foods.id(req.params.foodsId);
+        const food = currentUser.foods.id(req.params.foodId);
         res.render('foods/show.ejs', {
-            food: food,
+            food: food
         })
     } catch (error) {
         console.log(error);
