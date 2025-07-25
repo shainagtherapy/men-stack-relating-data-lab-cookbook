@@ -12,7 +12,11 @@
     <p>You're logged in!!!</p>
     <a href="/users/<%= user._id %>/foods/new">Add New Item</a>
 
-    <p><%= food.name %></p>
+    <ul>
+      <% pantry.forEach((food) => { %>
+        <li><%= food.name %></li>
+      <% }) %>
+    </ul>
     
   </body>
 </html>
