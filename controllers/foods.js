@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
     }
 })
 
-// reveal food pantry index
+// GET / reveal food pantry index
 router.get('/', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id);

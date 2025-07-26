@@ -3,29 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Pantry</title>
+    <title>User Community</title>
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Welcome to my Pantry</h1>
+    <h1>Community Page</h1>
     
     <p>You're logged in!!!</p>
     
     <a href="/users/<%= user._id %>/foods/new">Add New Item</a>
 
-      <% if (pantry.length === 0) { %>
-          <p>"There are no items in this pantry!"</p>
-      <% } else { %>
-          <ul>
-          <% pantry.forEach(food => { %>
-          <li>
             <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit"><%= food.name %></a>
              <form
               action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE"
-              method="POST">  <button type="submit">Delete this item</button>
-          </li>
-          <% }) %>
-        <% } %>
+              method="POST">
+              <button type="submit">Delete this item</button>
+
     </ul>
  
   </body>
