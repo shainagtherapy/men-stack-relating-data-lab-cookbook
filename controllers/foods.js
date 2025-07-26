@@ -58,7 +58,7 @@ router.get('/:foodId/edit', async (req, res) => {
         const currentUser = await User.findById(req.session.user._id);
         const food = currentUser.pantry.id(req.params.foodId);
         res.render('foods/edit.ejs', {
-            pantry: currentUser.pantry,
+            food: food,
         })
     } catch (error) {
         console.log(error);
@@ -73,7 +73,7 @@ router.put('/:foodId', async (req, res) => {
         const food = currentUser.pantry.id(req.params.foodId);
         food.set(req.body);
         await currentUser.save();
-        res.redirect(`/users/${currentUser.id}/foods/${req.params.foodId}`);
+        res.redirect(`/users/${currentUser.id}/foods`);
     } catch (error) {
         console.log(error);
         res.redirect('/');
