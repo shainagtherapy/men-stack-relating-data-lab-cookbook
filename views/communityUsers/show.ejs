@@ -7,10 +7,18 @@
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%= commUser.username %></h1>
-    <p>This will be another user's pantry!</p>
-
-  
+    <h1><%= commUser.username %>'s Pantry</h1>
+    <ul>
+      <% if (commUser.pantry.length === 0) { %>
+        <p>This pantry is empty!</p>
+      <% } else { %>
+        <% commUser.pantry.forEach((food) => { %>
+        <li>
+        <%= food.name %></a>
+        <% }) %>
+        <% } %>
+        </li>
+    </ul>
  
   </body>
 </html>
