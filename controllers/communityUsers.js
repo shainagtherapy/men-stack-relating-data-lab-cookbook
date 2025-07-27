@@ -18,12 +18,11 @@ router.get("/communityUsers", async (req, res) => {
 // SHOW ROUTE - links to communityUsers
 router.get('/:id', async (req, res) => {
     try {
-        const commUser = await User.findById(req.params._id); //_id or username?**********
-        res.render('communityUsers/show.ejs', { // ******** this line is the error
+        const commUser = await User.findById(req.params.id) 
+        res.render('communityUsers/show.ejs', {
             commUser: commUser,
         });
     } catch (error) {
-        // If any errors, log them and redirect back home
         console.log(error);
         res.redirect('/communityUsers');
     }
