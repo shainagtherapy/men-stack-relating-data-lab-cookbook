@@ -1,12 +1,16 @@
+<link rel="stylesheet" href="/stylesheets/partials.css" />
 <nav>
   <a href="/">Home</a>
   <% if(user) { %>
-  <a href="/users/<%= user._id %>/foods">View my Pantry</a>
-  <a href="/users/communityUsers">Explore Our Community</a>
-  <a href="/auth/sign-out">Sign Out</a>
+    <div class = "nav-links">
+    <a class="btn authlink" href="/users/<%= user._id %>/foods">View my Pantry</a>
+    <a class="btn authlink" href="/users/communityUsers">Explore Our Community</a>
+    <a class="btn authlink" href="/auth/sign-out">Sign Out</a>
+    </div>
   <% } else { %>
-  <a href="/auth/sign-in">Sign In</a>
-  <a href="/auth/sign-up">Sign Up</a>
-  
+    <div class="navbar">
+    <a class="btn nav-links" href="/auth/sign-in">Sign In</a>
+    <a class="btn nav-links" href="/auth/sign-up">Sign Up</a>
+    </div>
   <% } %>
 </nav>

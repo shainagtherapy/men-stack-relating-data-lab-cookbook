@@ -22,6 +22,8 @@ const passUserToView = require('./middleware/pass-user-to-view.js');
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : "3000";
 
+const path = require('path'); // styling step 2
+
 const authController = require("./controllers/auth.js");
 
 
@@ -40,6 +42,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 // Morgan for logging HTTP requests
 app.use(morgan('dev'));
+
+app.use(express.static(path.join(__dirname, 'public'))); //styling step 1
+
 app.use(session ({
     secret: process.env.SESSION_SECRET,
     resave: false,
