@@ -1,17 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 body {
-    background-image: url('https://garden.spoonflower.com/c/13345482/p/f/m/V8mdvN3zd3u9hvEy0XEnOlI9klhFCCagyS6cHZyB_kfvNA0XmsgeDgg/medium%20Worn%20out%2070s%20Damask%20Flower%20-%20brown%20red.jpg');
+    background-image: url('https://static.vecteezy.com/system/resources/previews/000/126/665/non_2x/vector-free-kitchen-illstration.jpg');
     background-repeat: repeat-x;
     background-position-x: center;
-    
     background-size: 100px 100px;
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    background-color: green;
-    color: white;
+    background-color: white;
+    color: green;
     align-items: center;
+    padding-top: 125px;
     }
+
+.container {
+    
+}
+
+.index {
+border: solid black 1px;
+}
+
+.button {
+    border: solid black 1px;
+    font-family: 'Poppins', sans-serif;
+    margin-inline-end: auto;
+}
